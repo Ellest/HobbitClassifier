@@ -1,2 +1,7 @@
-# training model
+# training model related
 *.pb
+retrained_labels.txt
+
+#folders to ignore
+bottlenecks/
+inception/

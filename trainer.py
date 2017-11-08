@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+from argparse import ArgumentParser
 
 def train(steps):
 	learning_rate = None#0.0001
@@ -32,11 +33,12 @@ def train(steps):
 		print('something went wrong with the training...')
 
 if __name__ == '__main__':
-	if len(sys.argv) < 1:
-		print('must have at least one argument')
-	steps = sys.argv[1]
-	if not steps.isdigit():
-		print('arugment must be a number')
+	if len(sys.argv) < 2:
+		print('usage: python trainer.py [number-of-steps] [learning-rate]')
 	else:
-		print('running trainer with {0} steps...'.format(steps))
-		train(steps)
+		steps = sys.argv[1]
+		if not steps.isdigit():
+			print('arugment must be a number')
+		else:
+			print('running trainer with {0} steps...'.format(steps))
+			train(steps)
